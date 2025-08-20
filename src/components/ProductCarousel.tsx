@@ -11,7 +11,7 @@ const ProductCarousel = () => {
       category: "Alimento Premium",
       price: "$899",
       rating: 4.8,
-      image: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=400",
+      image: "https://images.pexels.com/photos/6568942/pexels-photo-6568942.jpeg",
       badge: "Más vendido"
     },
     {
@@ -20,7 +20,7 @@ const ProductCarousel = () => {
       category: "Suplementos",
       price: "$450",
       rating: 4.9,
-      image: "https://images.pexels.com/photos/4153123/pexels-photo-4153123.jpeg?auto=compress&cs=tinysrgb&w=400",
+      image: "https://images.pexels.com/photos/3683041/pexels-photo-3683041.jpeg",
       badge: "Nuevo"
     },
     {
@@ -29,7 +29,7 @@ const ProductCarousel = () => {
       category: "Juguetes",
       price: "$299",
       rating: 4.7,
-      image: "https://images.pexels.com/photos/1564506/pexels-photo-1564506.jpeg?auto=compress&cs=tinysrgb&w=400",
+      image: "https://cdn.redcanina.es/wp-content/uploads/2020/11/02213225/puzzle--1024x683.jpg",
       badge: "Popular"
     },
     {
@@ -38,7 +38,7 @@ const ProductCarousel = () => {
       category: "Premios",
       price: "$199",
       rating: 4.8,
-      image: "https://images.pexels.com/photos/4498221/pexels-photo-4498221.jpeg?auto=compress&cs=tinysrgb&w=400",
+      image: "https://cdn0.expertoanimal.com/es/posts/0/4/8/tipos_de_snacks_naturales_para_perros_25840_2_600.jpg",
       badge: "Orgánico"
     }
   ];

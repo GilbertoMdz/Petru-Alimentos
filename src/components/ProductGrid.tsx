@@ -17,7 +17,7 @@ const ProductGrid = () => {
       originalPrice: 999,
       rating: 4.8,
       reviews: 245,
-      image: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=400",
+      image: "https://images.pexels.com/photos/6568942/pexels-photo-6568942.jpeg",
       badge: "Oferta",
       inStock: true
     },
@@ -28,7 +28,7 @@ const ProductGrid = () => {
       price: 450,
       rating: 4.9,
       reviews: 128,
-      image: "https://images.pexels.com/photos/4153123/pexels-photo-4153123.jpeg?auto=compress&cs=tinysrgb&w=400",
+      image: "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/peh/peh72853/y/2.jpg",
       badge: "Nuevo",
       inStock: true
     },
@@ -39,7 +39,7 @@ const ProductGrid = () => {
       price: 299,
       rating: 4.7,
       reviews: 89,
-      image: "https://images.pexels.com/photos/1564506/pexels-photo-1564506.jpeg?auto=compress&cs=tinysrgb&w=400",
+      image: "https://m.media-amazon.com/images/I/61rr+GzzSKL._UF894,1000_QL80_.jpg",
       badge: "Popular",
       inStock: false
     },
@@ -50,7 +50,7 @@ const ProductGrid = () => {
       price: 199,
       rating: 4.6,
       reviews: 156,
-      image: "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&w=400",
+      image: "https://m.media-amazon.com/images/I/71yh4cJw76L._UF1000,1000_QL80_.jpg",
       inStock: true
     },
     {
@@ -60,7 +60,7 @@ const ProductGrid = () => {
       price: 249,
       rating: 4.8,
       reviews: 203,
-      image: "https://images.pexels.com/photos/4498221/pexels-photo-4498221.jpeg?auto=compress&cs=tinysrgb&w=400",
+      image: "https://www.krakvet.pl/img/480/178dcb/22J4h6l8k0O0q1P79308H0h5X490X2a7.jpg",
       badge: "Orgánico",
       inStock: true
     },
@@ -72,7 +72,7 @@ const ProductGrid = () => {
       originalPrice: 1499,
       rating: 4.9,
       reviews: 67,
-      image: "https://images.pexels.com/photos/1629781/pexels-photo-1629781.jpeg?auto=compress&cs=tinysrgb&w=400",
+      image: "https://m.media-amazon.com/images/I/61+8Jigl0YL.jpg",
       badge: "Premium",
       inStock: true
     }
