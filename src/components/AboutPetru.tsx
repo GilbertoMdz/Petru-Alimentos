@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Play, Users, Heart, Award, ArrowRight } from 'lucide-react';
 
 const AboutPetru = () => {

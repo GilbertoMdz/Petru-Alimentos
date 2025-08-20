@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Filter, Grid, List, Search, Star } from 'lucide-react';
+import { useState } from 'react';
+import { Grid, List, Search, Star } from 'lucide-react';
 
 const ProductGrid = () => {
   const [selectedCategory, setSelectedCategory] = useState('Todos');
