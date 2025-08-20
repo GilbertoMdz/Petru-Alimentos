@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 
 const Testimonials = () => {
@@ -50,13 +50,8 @@ const Testimonials = () => {
     return () => clearInterval(timer);
   }, [testimonials.length]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % testimonials.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
     <section className="py-20 bg-yellow-50">
@@ -73,17 +68,19 @@ const Testimonials = () => {
 
         {/* Testimonials Carousel */}
         <div className="relative max-w-4xl mx-auto">
-          <div className="overflow-hidden rounded-2xl">
-            <div 
+          {/* Oculta solo horizontalmente para no cortar vertical */}
+          <div className="overflow-x-hidden overflow-y-visible rounded-2xl">
+            <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
-              {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
-                  <div className="bg-white rounded-2xl p-8 shadow-lg relative">
-                    {/* Quote Icon */}
-                    <div className="absolute -top-4 left-8">
-                      <div className="bg-yellow-500 rounded-full p-3">
+              {testimonials.map((t) => (
+                <div key={t.id} className="w-full flex-shrink-0 px-4">
+                  {/* MÁS padding arriba para que el icono tenga espacio */}
+                  <div className="bg-white rounded-2xl p-8 pt-16 shadow-lg relative">
+                    {/* Quote Icon – SIEMPRE dentro del card */}
+                    <div className="absolute top-6 left-6 z-10 pointer-events-none">
+                      <div className="bg-yellow-500 rounded-full p-3 shadow-md ring-4 ring-white">
                         <Quote className="w-6 h-6 text-black" />
                       </div>
                     </div>
@@ -93,45 +90,38 @@ const Testimonials = () => {
                       <div className="text-center">
                         <div className="relative inline-block">
                           <img
-                            src={testimonial.petImage}
-                            alt={testimonial.petName}
+                            src={t.petImage}
+                            alt={t.petName}
                             className="w-32 h-32 rounded-full object-cover border-4 border-yellow-500"
                           />
-                          <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-semibold">
-                            {testimonial.petName}
+                          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-semibold">
+                            {t.petName}
                           </div>
                         </div>
                       </div>
 
                       {/* Testimonial Content */}
                       <div className="md:col-span-2 space-y-6">
-                        {/* Rating */}
-                        <div className="flex items-center gap-2">
-                          {[...Array(testimonial.rating)].map((_, i) => (
+                        <div className="flex items-center gap-2" aria-hidden>
+                          {[...Array(t.rating)].map((_, i) => (
                             <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                           ))}
                         </div>
 
-                        {/* Text */}
                         <p className="text-gray-700 text-lg leading-relaxed italic">
-                          "{testimonial.text}"
+                          "{t.text}"
                         </p>
 
-                        {/* Customer Info */}
                         <div className="border-t border-gray-200 pt-6">
                           <div className="flex items-center justify-between">
                             <div>
-                              <h4 className="font-bold text-black">
-                                {testimonial.name}
-                              </h4>
+                              <h4 className="font-bold text-black">{t.name}</h4>
                               <p className="text-yellow-600 font-medium">
-                                Dueño de {testimonial.petName}
+                                Dueño de {t.petName}
                               </p>
                             </div>
                             <div className="text-right">
-                              <p className="text-sm text-gray-500">
-                                {testimonial.location}
-                              </p>
+                              <p className="text-sm text-gray-500">{t.location}</p>
                             </div>
                           </div>
                         </div>
@@ -146,33 +136,34 @@ const Testimonials = () => {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 group"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 group"
+            aria-label="Anterior"
           >
             <ChevronLeft className="w-6 h-6 text-black group-hover:text-yellow-500 transition-colors duration-200" />
           </button>
-          
+
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 group"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 group"
+            aria-label="Siguiente"
           >
             <ChevronRight className="w-6 h-6 text-black group-hover:text-yellow-500 transition-colors duration-200" />
           </button>
 
-          {/* Dots Indicator */}
+          {/* Dots */}
           <div className="flex justify-center mt-8 space-x-2">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                  currentSlide === index ? 'bg-yellow-500 w-8' : 'bg-gray-300'
+                className={`h-3 rounded-full transition-all duration-200 ${
+                  currentSlide === index ? 'bg-yellow-500 w-8' : 'bg-gray-300 w-3'
                 }`}
+                aria-label={`Ir al testimonio ${index + 1}`}
               />
             ))}
           </div>
         </div>
-
-
       </div>
     </section>
   );
